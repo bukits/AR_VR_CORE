@@ -17,65 +17,49 @@
 #include "rubik_cube_solver.hpp"
 #include <string>
 #include <iostream>
-#include "opencv2/highgui/highgui.hpp"
-#include "opencv2/imgproc/imgproc.hpp"
+#include "color_detector.hpp"
 
 using namespace cv;
 using namespace std;
 
 int main() {
+    Mat face = imread(R"(C:\Users\tbukits\CLionProjects\AR_VR_CORE\faces\1top.png)");
 
-    // color detection
-    Mat face = imread("C:\\Users\\tbukits\\CLionProjects\\AR_VR_CORE\\face.png");
+    int newWidth = 300;
+    int newHeight = 300;
 
-    Mat hsvImage;
-    cvtColor(face, hsvImage, COLOR_BGR2HSV);
+    Size newSize(newWidth, newHeight);
+    Mat resizedImage;
+    resize(face, resizedImage, newSize);
 
-    Scalar lowerBound(0, 100, 100);
-    Scalar upperBound(10, 255, 255);
+    cv::Mat colorMatrix = cv::Mat::zeros(3, 3, CV_8U);
 
-    Mat mask;
-    inRange(hsvImage, lowerBound, upperBound, mask);
+    ColorDetector::StoreColors(resizedImage, colorMatrix);
+    std::string  faceColorString = ColorDetector::CreateCubeState(colorMatrix);
 
-    Mat kernel = getStructuringElement(MORPH_ELLIPSE, Size(5, 5));
-    morphologyEx(mask, mask, MORPH_OPEN, kernel);
-    morphologyEx(mask, mask, MORPH_CLOSE, kernel);
-
-    Mat redMasked;
-    bitwise_and(face, face, redMasked, mask);
-
-    // Display the results
-    imshow("Original Image", face);
-    imshow("Red Color Mask", redMasked);
-    waitKey(0);
+    std::cout << colorMatrix << endl;
+    cout << faceColorString << endl;
 
 
-    /*
     //solving the rubics cube
+    /*
     const char* initial_state = "FFFFFFFFFUUUUUUUUUDDDDDDDDDLLLLLLLLLRRRRRRRRRBBBBBBBBB";
 
-    rb::RubikCube rb(initial_state, 3);
 
+    rb::RubikCube rb(3);
 
     std::cout << "Scramble cube:" << std::endl;
     std::string moves = rb.Scramble();
+    cout << moves << endl;
     rb.Dump();
-
-    std::cout << "Inverse scramble steps:" << std::endl;
-    rb.Inverse(moves);
-    rb.Dump();
-
-    std::cout << "Scramble cube again:" << std::endl;
-    rb.Scramble();
-    rb.Dump();
+    cout << rb.faces_ << endl;
 
     rb::RubikCubeSolver *solver = new rb::RubikCube3BasicSolver(rb);
-    string moves = solver->Solve();
+    moves = solver->Solve();
 
     std::cout << "Moves solved by basic solver: " << moves << std::endl;
     rb.Move(moves);
-    rb.Dump();
-     */
+    rb.Dump();*/
 
     return 0;
 }

@@ -1,15 +1,19 @@
+#include "opencv2/highgui/highgui.hpp"
+#include "opencv2/imgproc/imgproc.hpp"
+
 class ColorDetector {
 public:
-    ColorDetector() {}
+    ColorDetector() = default;
 
-    virtual ~ColorDetector() {}
+    virtual ~ColorDetector() = default;
 
     // inout from the FE BZS
     void LoadImages();
     void FaceDetection();
 
-    //resize the image to be able to create the neighborhood of the colors BT
-    void ReadColors();
-    //to check what format we need to create the Cube Object
-    void CreateCube();
+    static void StoreColors(cv::Mat& image, cv::Mat& colorMatrix);
+
+    //Top, left, front, right, back, bottom is the order from row processing from left to right
+    // only for one face
+    static std::string CreateCubeState(cv::Mat& colorMatrix);
 };

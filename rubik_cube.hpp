@@ -91,6 +91,12 @@ class RubikCube {
 
     std::string CompressMoves(const std::string& Moves);
 
+    int dim_;
+    int piece_num_;
+    char* faces_;
+    char* color_mappings_;
+    char* face_mappings_;
+
   private:
     void MapColors(const char* colors);
 
@@ -101,12 +107,6 @@ class RubikCube {
     void RotateSlice(const CUBE_SLICE& rot_slice, const ROTATE_DIR& dir, const int& offset = 0);
     void DoRotateSlice(const int& slice_info_idx, const ROTATE_DIR& dir, const int& offset = 0);
     std::string CompressMovesImpl(const std::string& Moves);
-
-    int dim_;
-    int piece_num_;
-    char* faces_;
-    char* color_mappings_;
-    char* face_mappings_;
 };
 
 }
