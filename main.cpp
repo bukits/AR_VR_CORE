@@ -23,7 +23,7 @@ using namespace cv;
 using namespace std;
 
 int main() {
-    Mat face = imread(R"(C:\Users\tbukits\CLionProjects\AR_VR_CORE\faces\1top.png)");
+    /*Mat face = imread(R"(C:\Users\tbukits\CLionProjects\AR_VR_CORE\faces\1top.png)");
 
     int newWidth = 300;
     int newHeight = 300;
@@ -42,6 +42,11 @@ int main() {
 
 
     //solving the rubics cube
+    */
+    new ColorDetector();
+    cv::Mat image = ColorDetector::LoadImages();
+    cv::Mat face = ColorDetector::FaceDetection(image);
+
     /*
     const char* initial_state = "FFFFFFFFFUUUUUUUUUDDDDDDDDDLLLLLLLLLRRRRRRRRRBBBBBBBBB";
 

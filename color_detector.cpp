@@ -1,4 +1,70 @@
+
+#include <iostream>
+#include <vector>
+#include <string>
+#include <opencv2/opencv.hpp>
 #include "color_detector.hpp"
+#include "Face.hpp"
+#include <filesystem>
+
+std::string GetPath(){
+    std::filesystem::path cwd = std::filesystem::current_path();
+    std::string path = cwd.generic_string();
+    size_t lastSlashPos = path.find_last_of('/');
+    if (lastSlashPos != std::string::npos) {
+        path = path.substr(0, lastSlashPos);
+    }
+    std::string folderPath = path + "/faces/";
+    // std::cout<< folderPath << std::endl;
+
+    return folderPath;
+}
+
+cv::Mat ColorDetector::LoadImages() {
+    std::string folderName = GetPath();
+
+    std::vector<cv::Mat> images;
+    // cv::String folderName = folderPath + "*.png";
+    std::vector<cv::String> fileNames;
+    if (std::filesystem::exists(folderName)) {
+        cv::glob(folderName, fileNames, false);
+
+        if (fileNames.empty()) {
+            std::cerr << "No files found in the folder." << std::endl;
+        }
+        else {
+            for (const cv::String& fileName : fileNames) {
+                cv::Mat image = cv::imread(fileName);
+                if (!image.empty()) {
+                    images.push_back(image);
+                }
+            }
+        }
+    }
+    else {
+        throw std::runtime_error("Folder not found: " + folderName);
+    }
+    /*
+    for (const auto& image : images) {
+        imshow("Loaded Image", image);
+        cv::waitKey(0);
+    }
+    */
+
+    return  images[0];
+}
+
+cv::Mat ColorDetector::FaceDetection(cv::Mat &image) {
+    cv::Mat img = image;
+    new Face();
+    cv::Mat modified = Face::Thresholding(img);
+    Face::Contour(modified);
+
+    return img;
+}
+
+
+
 
 void ColorDetector::StoreColors(cv::Mat& image, cv::Mat& colorMatrix) {
     int numRows = colorMatrix.rows;
@@ -76,3 +142,5 @@ std::string ColorDetector::CreateCubeState(cv::Mat &colorMatrix) {
     delete[] face;
     return faceString;
 }
+
+
