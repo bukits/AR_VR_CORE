@@ -23,22 +23,22 @@ using namespace cv;
 using namespace std;
 
 int main() {
-    Mat face = imread(R"(C:\Users\tbukits\CLionProjects\AR_VR_CORE\faces\1top.png)");
-
     int newWidth = 300;
     int newHeight = 300;
 
     Size newSize(newWidth, newHeight);
     Mat resizedImage;
-    resize(face, resizedImage, newSize);
 
-    cv::Mat colorMatrix = cv::Mat::zeros(3, 3, CV_8U);
+    std::vector<cv::Mat> faces =  ColorDetector::LoadImages();
+    for (const auto& face : faces) {
+        resize(face, resizedImage, newSize);
+        cv::Mat colorMatrix = cv::Mat::zeros(3, 3, CV_8U);
+        ColorDetector::StoreColors(resizedImage, colorMatrix);
+        std::string  faceColorString = ColorDetector::CreateCubeState(colorMatrix);
+        std::cout << colorMatrix << endl;
+        cout << faceColorString << endl;
+    }
 
-    ColorDetector::StoreColors(resizedImage, colorMatrix);
-    std::string  faceColorString = ColorDetector::CreateCubeState(colorMatrix);
-
-    std::cout << colorMatrix << endl;
-    cout << faceColorString << endl;
 
 
     //solving the rubics cube

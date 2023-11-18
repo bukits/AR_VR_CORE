@@ -8,8 +8,7 @@ public:
     virtual ~ColorDetector() = default;
 
     // inout from the FE BZS
-    void LoadImages();
-    void FaceDetection();
+    static std::vector<cv::Mat> LoadImages();
 
     static void StoreColors(cv::Mat& image, cv::Mat& colorMatrix);
 
