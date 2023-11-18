@@ -1,11 +1,6 @@
-
-#include <iostream>
-#include <vector>
-#include <string>
-#include <opencv2/opencv.hpp>
-#include "color_detector.hpp"
-#include "Face.hpp"
 #include <filesystem>
+#include <iostream>
+#include "color_detector.hpp"
 
 std::string GetPath(){
     std::filesystem::path cwd = std::filesystem::current_path();
@@ -14,13 +9,13 @@ std::string GetPath(){
     if (lastSlashPos != std::string::npos) {
         path = path.substr(0, lastSlashPos);
     }
-    std::string folderPath = path + "/faces/";
+    std::string folderPath = path + "/faces_real/";
     // std::cout<< folderPath << std::endl;
 
     return folderPath;
 }
 
-cv::Mat ColorDetector::LoadImages() {
+std::vector<cv::Mat> ColorDetector::LoadImages() {
     std::string folderName = GetPath();
 
     std::vector<cv::Mat> images;
@@ -30,7 +25,7 @@ cv::Mat ColorDetector::LoadImages() {
         cv::glob(folderName, fileNames, false);
 
         if (fileNames.empty()) {
-            std::cerr << "No files found in the folder." << std::endl;
+            std::cout << "No files found in the folder." << std::endl;
         }
         else {
             for (const cv::String& fileName : fileNames) {
@@ -44,27 +39,15 @@ cv::Mat ColorDetector::LoadImages() {
     else {
         throw std::runtime_error("Folder not found: " + folderName);
     }
-    /*
-    for (const auto& image : images) {
+
+    /*for (const auto& image : images) {
         imshow("Loaded Image", image);
         cv::waitKey(0);
-    }
-    */
+    }*/
 
-    return  images[0];
+
+    return images;
 }
-
-cv::Mat ColorDetector::FaceDetection(cv::Mat &image) {
-    cv::Mat img = image;
-    new Face();
-    cv::Mat modified = Face::Thresholding(img);
-    Face::Contour(modified);
-
-    return img;
-}
-
-
-
 
 void ColorDetector::StoreColors(cv::Mat& image, cv::Mat& colorMatrix) {
     int numRows = colorMatrix.rows;
@@ -75,22 +58,23 @@ void ColorDetector::StoreColors(cv::Mat& image, cv::Mat& colorMatrix) {
     std::vector<int> colorIds = {0, 1, 2, 3, 4, 5}; //R, G, B, O, Y, W
 
     std::vector<cv::Scalar> lowerBounds = {
-            cv::Scalar(0, 100, 100),  // Red
-            cv::Scalar(35, 100, 100),  // Green
-            cv::Scalar(100, 100, 100), // Blue
-            cv::Scalar(10, 100, 100),   // Orange
-            cv::Scalar(20, 100, 100), // Yellow
-            cv::Scalar(0, 0, 200) // White
+            cv::Scalar(151, 50, 50),  // Red
+            cv::Scalar(46, 50, 40),  // Green
+            cv::Scalar(101, 150, 50), // Blue
+            cv::Scalar(0, 50 ,100),   // Orange
+            cv::Scalar(16, 50, 70), // Yellow
+            cv::Scalar(0, 0, 90) // White
     };
 
     std::vector<cv::Scalar> upperBounds = {
-            cv::Scalar(10, 255, 255),  // Red
-            cv::Scalar(85, 255, 255),  // Green
-            cv::Scalar(130, 255, 255), // Blue
-            cv::Scalar(30, 255, 255),   // Orange
-            cv::Scalar(30, 255, 255), // Yellow
-            cv::Scalar(1800, 30, 255) // White
+            cv::Scalar(180, 255, 255),  // Red
+            cv::Scalar(80, 255, 255),  // Green
+            cv::Scalar(140, 255, 255), // Blue
+            cv::Scalar(15, 255, 255),   // Orange
+            cv::Scalar(45, 255, 255), // Yellow
+            cv::Scalar(180, 90, 255) // White
     };
+    cv::Mat areaMatrix = cv::Mat::zeros(3, 3, CV_64F);
 
     for (int i = 0; i < colorIds.size(); ++i) {
         cv::Mat hsvImage;
@@ -100,6 +84,11 @@ void ColorDetector::StoreColors(cv::Mat& image, cv::Mat& colorMatrix) {
         cv::Scalar lowerBound = lowerBounds[i];
         cv::Scalar upperBound = upperBounds[i];
         cv::inRange(hsvImage, lowerBound, upperBound, mask);
+
+        /*
+        cv::imshow("Result", mask);
+        cv::waitKey(0);
+        cv::destroyAllWindows();*/
 
         cv::Mat kernel = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(5, 5));
         cv::morphologyEx(mask, mask, cv::MORPH_OPEN, kernel);
@@ -114,6 +103,8 @@ void ColorDetector::StoreColors(cv::Mat& image, cv::Mat& colorMatrix) {
         int colorId = colorIds[i];
 
         for (const auto & contour : contours) {
+            double area = cv::contourArea(contour);
+
             cv::Moments mu = moments(contour);
             cv::Point2f centroid(mu.m10 / mu.m00, mu.m01 / mu.m00);
 
@@ -121,7 +112,11 @@ void ColorDetector::StoreColors(cv::Mat& image, cv::Mat& colorMatrix) {
             int cellCol = static_cast<int>(centroid.x / cellWidth);
 
             if (cellRow >= 0 && cellRow < numRows && cellCol >= 0 && cellCol < numCols) {
-                colorMatrix.at<uchar>(cellRow, cellCol) = colorId ;
+
+                if (area > areaMatrix.at<double>(cellRow, cellCol)) {
+                    areaMatrix.at<double>(cellRow, cellCol) = area;
+                    colorMatrix.at<uchar>(cellRow, cellCol) = colorId;
+                }
             }
         }
     }
@@ -142,5 +137,3 @@ std::string ColorDetector::CreateCubeState(cv::Mat &colorMatrix) {
     delete[] face;
     return faceString;
 }
-
-
