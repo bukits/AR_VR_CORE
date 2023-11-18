@@ -4,6 +4,6 @@
 -- OpenCV STATIC: OFF
 -- Found OpenCV 4.8.0 in C:/Users/budai/opencv-4.x/build/install/x64/vc17/lib
 -- You might need to add C:\Users\budai\opencv-4.x\build\install\x64\vc17\bin to your PATH to be able to run your applications.
--- Configuring done (0.1s)
--- Generating done (0.0s)
+-- Configuring done (0.5s)
+-- Generating done (0.1s)
 -- Build files have been written to: C:/Users/budai/CLionProjects/AR_VR_CORE/cmake-build-debug

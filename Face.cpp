@@ -1,5 +1,6 @@
 #include <opencv2/imgproc.hpp>
 #include <iostream>
+#include <opencv2/highgui.hpp>
 #include "Face.hpp"
 
 
@@ -10,6 +11,7 @@ cv::Mat Face::Thresholding(const cv::Mat& Image) {
     cv::addWeighted(Image, 4, modified, -0.8, 0, modified);
 
     cv::cvtColor(modified, modified, cv::COLOR_BGR2GRAY);
+
     cv::threshold(modified, modified, 100, 150, cv::THRESH_BINARY);
     cv::Mat kernel = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(50, 50));
     cv::Mat closedImage;
@@ -82,10 +84,10 @@ cv::Mat Face::Contour(cv::Mat &Image) {
     if (top < bottom && left < right) {
         cv::Rect croppedRect(left, top, right - left + 1, bottom - top + 1);
         cv::Mat croppedImage = Original(croppedRect).clone();
-/*
+
         cv::imshow("Cropped Image", croppedImage);
         cv::waitKey(0);
-*/
+
         return croppedImage;
     } else {
         std::cerr << "Unable to find suitable area to crop." << std::endl;
