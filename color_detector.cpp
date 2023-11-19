@@ -1,5 +1,6 @@
 #include <filesystem>
 #include <iostream>
+#include <map>
 #include "color_detector.hpp"
 
 std::string GetPath(){
@@ -9,10 +10,64 @@ std::string GetPath(){
     if (lastSlashPos != std::string::npos) {
         path = path.substr(0, lastSlashPos);
     }
-    std::string folderPath = path + "/faces_real/";
-    // std::cout<< folderPath << std::endl;
+    std::string folderPath = path + "/faces/TEST/";
+    std::cout<< folderPath << std::endl;
+    try {
+        if (!std::filesystem::exists(folderPath)) {
+            throw std::runtime_error("Folder not found: " + folderPath);
+        }
+    } catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+        throw;
+    }
 
     return folderPath;
+}
+
+double measureBrightness(const cv::Mat& image) {
+    cv::Mat grayImage;
+    cvtColor(image, grayImage, cv::COLOR_BGR2GRAY);
+    cv::Scalar averageIntensity = mean(grayImage);
+    return averageIntensity[0];
+}
+
+void adjustBrightness(cv::Mat& hsvImage, double targetBrightness = 40) {
+    double currentBrightness = measureBrightness(hsvImage);
+
+    if (currentBrightness < targetBrightness) {
+        double brightnessFactor = targetBrightness / currentBrightness;
+
+        hsvImage.forEach<cv::Vec3b>([brightnessFactor](cv::Vec3b& pixel, const int* position) {
+            pixel[2] = cv::saturate_cast<uchar>(pixel[2] * brightnessFactor);
+        });
+    }
+}
+
+const char* ColorDetector::getStateFromDictionary(const std::string& input) {
+    std::map<int, char> cubeStateDictionary = {
+            {0, 'L'},
+            {1, 'U'},
+            {2, 'D'},
+            {3, 'R'},
+            {4, 'B'},
+            {5, 'F'}
+    };
+
+    char* result = new char[input.size() + 1]; // +1 for null-terminator
+    int resultIndex = 0;
+
+    for (char c : input) {
+        int key = c - '0';
+        auto it = cubeStateDictionary.find(key);
+
+        if (it != cubeStateDictionary.end()) {
+            result[resultIndex++] = it->second;
+        }
+    }
+
+    result[resultIndex] = '\0'; // Null-terminate the result string
+
+    return result;
 }
 
 std::vector<cv::Mat> ColorDetector::LoadImages() {
@@ -59,7 +114,7 @@ void ColorDetector::StoreColors(cv::Mat& image, cv::Mat& colorMatrix) {
 
     std::vector<cv::Scalar> lowerBounds = {
             cv::Scalar(151, 50, 50),  // Red
-            cv::Scalar(46, 50, 40),  // Green
+            cv::Scalar(50, 50, 40),  // Green
             cv::Scalar(101, 150, 50), // Blue
             cv::Scalar(0, 50 ,100),   // Orange
             cv::Scalar(16, 50, 70), // Yellow
@@ -68,7 +123,7 @@ void ColorDetector::StoreColors(cv::Mat& image, cv::Mat& colorMatrix) {
 
     std::vector<cv::Scalar> upperBounds = {
             cv::Scalar(180, 255, 255),  // Red
-            cv::Scalar(80, 255, 255),  // Green
+            cv::Scalar(90, 255, 255),  // Green
             cv::Scalar(140, 255, 255), // Blue
             cv::Scalar(15, 255, 255),   // Orange
             cv::Scalar(45, 255, 255), // Yellow
@@ -76,14 +131,24 @@ void ColorDetector::StoreColors(cv::Mat& image, cv::Mat& colorMatrix) {
     };
     cv::Mat areaMatrix = cv::Mat::zeros(3, 3, CV_64F);
 
-    for (int i = 0; i < colorIds.size(); ++i) {
-        cv::Mat hsvImage;
-        cv::cvtColor(image, hsvImage, cv::COLOR_BGR2HSV);
+    cv::Mat hsvImage;
+    cv::cvtColor(image, hsvImage, cv::COLOR_BGR2HSV);
 
+    /*
+    adjustBrightness(hsvImage, 200);
+    cvtColor(hsvImage, hsvImage, cv::COLOR_HSV2BGR);
+
+
+    cv::imshow("Result", hsvImage);
+    cv::waitKey(0);
+    cv::destroyAllWindows()*/
+
+    for (int i = 0; i < colorIds.size(); ++i) {
         cv::Mat mask;
         cv::Scalar lowerBound = lowerBounds[i];
         cv::Scalar upperBound = upperBounds[i];
         cv::inRange(hsvImage, lowerBound, upperBound, mask);
+
 
         /*
         cv::imshow("Result", mask);
