@@ -1,9 +1,19 @@
-"C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - NMake Makefiles" -S C:\Users\budai\CLionProjects\AR_VR_CORE -B C:\Users\budai\CLionProjects\AR_VR_CORE\cmake-build-debug
--- OpenCV ARCH: x64
--- OpenCV RUNTIME: vc17
--- OpenCV STATIC: OFF
--- Found OpenCV 4.8.0 in C:/Users/budai/opencv-4.x/build/install/x64/vc17/lib
--- You might need to add C:\Users\budai\opencv-4.x\build\install\x64\vc17\bin to your PATH to be able to run your applications.
--- Configuring done (0.2s)
--- Generating done (0.1s)
--- Build files have been written to: C:/Users/budai/CLionProjects/AR_VR_CORE/cmake-build-debug
+"C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2023.2.2/bin/ninja/win/x64/ninja.exe" -G Ninja -S C:\Users\tbukits\CLionProjects\AR_VR_CORE -B C:\Users\tbukits\CLionProjects\AR_VR_CORE\cmake-build-debug
+CMake Error at CMakeLists.txt:8 (find_package):
+  By not providing "FindOpenCV.cmake" in CMAKE_MODULE_PATH this project has
+  asked CMake to find a package configuration file provided by "OpenCV", but
+  CMake did not find one.
+
+  Could not find a package configuration file provided by "OpenCV" with any
+  of the following names:
+
+    OpenCVConfig.cmake
+    opencv-config.cmake
+
+  Add the installation prefix of "OpenCV" to CMAKE_PREFIX_PATH or set
+  "OpenCV_DIR" to a directory containing one of the above files.  If "OpenCV"
+  provides a separate development package or SDK, be sure it has been
+  installed.
+
+
+-- Configuring incomplete, errors occurred!

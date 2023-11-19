@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.26)
 project(AR_VR_CORE)
 
 set(CMAKE_CXX_STANDARD 17)
-set(ENV{OPENCV_DIR} "C:\\Users\\budai\\opencv-4.x\\build\\install")
+set(ENV{OPENCV_DIR} "C:\\opencv\\build\\install")
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
 find_package(OpenCV REQUIRED)
