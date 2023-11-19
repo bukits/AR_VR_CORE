@@ -10,6 +10,8 @@ public:
     // inout from the FE BZS
     static std::vector<cv::Mat> LoadImages();
 
+    static const char* getStateFromDictionary(const std::string& input);
+
     static void StoreColors(cv::Mat& image, cv::Mat& colorMatrix);
 
     //Top, left, front, right, back, bottom is the order from row processing from left to right

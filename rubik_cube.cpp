@@ -225,7 +225,7 @@ void RubikCube::Dump(const bool& is_color/* = false*/) {
         std::cout << line << std::endl;
     }
 
-    // Dump LEFT, FRONT, RIGHT, BACK faces
+    // Dump LEFT, FRONT, RIGHT, BACK faces_test1
     for (int i = 0; i < dim_; i ++) {
         char *p = line;
         for (int f = (int)L; f <= (int)B; f ++) {

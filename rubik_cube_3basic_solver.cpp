@@ -330,7 +330,7 @@ std::string RubikCube3BasicSolver::SolveDownCross() {
         cube_.RotateCube(ROTATE);
     }
 
-    // Rotate DOWN face to match as many side faces as possible
+    // Rotate DOWN face to match as many side faces_test1 as possible
     int max_match_cnt = -1;
     int max_rotate_cnt = 0;
     for (int i = 0; i < 4; i ++) {
