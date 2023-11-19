@@ -30,36 +30,38 @@ int main() {
     Mat resizedImage;
 
     std::vector<cv::Mat> faces =  ColorDetector::LoadImages();
+    std::string cubeStateString;
     for (const auto& face : faces) {
         resize(face, resizedImage, newSize);
         cv::Mat colorMatrix = cv::Mat::zeros(3, 3, CV_8U);
         ColorDetector::StoreColors(resizedImage, colorMatrix);
-        std::string  faceColorString = ColorDetector::CreateCubeState(colorMatrix);
+        std::string faceColorString = ColorDetector::CreateCubeState(colorMatrix);
         std::cout << colorMatrix << endl;
-        cout << faceColorString << endl;
+        cubeStateString.append(faceColorString);
     }
 
-
+    std::cout << cubeStateString << endl;
 
     //solving the rubics cube
+    const char* initial_state = ColorDetector::getStateFromDictionary(cubeStateString);
+    std::cout << initial_state << endl;
+
+    rb::RubikCube rb(initial_state, 3);
+
     /*
-    const char* initial_state = "FFFFFFFFFUUUUUUUUUDDDDDDDDDLLLLLLLLLRRRRRRRRRBBBBBBBBB";
-
-
-    rb::RubikCube rb(3);
-
     std::cout << "Scramble cube:" << std::endl;
     std::string moves = rb.Scramble();
     cout << moves << endl;
     rb.Dump();
     cout << rb.faces_ << endl;
+     */
 
     rb::RubikCubeSolver *solver = new rb::RubikCube3BasicSolver(rb);
-    moves = solver->Solve();
+    std::string moves = solver->Solve();
 
     std::cout << "Moves solved by basic solver: " << moves << std::endl;
     rb.Move(moves);
-    rb.Dump();*/
+    rb.Dump();
 
     return 0;
 }
