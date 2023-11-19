@@ -12,10 +12,7 @@ add_executable(AR_VR_CORE main.cpp
         rubik_cube.cpp
         rubik_cube_3basic_solver.cpp
         color_detector.cpp
-        color_detector.cpp
         color_detector.hpp
-        Face.cpp
-        Face.hpp
 )
 
 set(OpenCV_LIBS opencv_core opencv_imgproc opencv_highgui opencv_imgcodecs)

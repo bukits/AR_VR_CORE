@@ -17,12 +17,14 @@
 #include "rubik_cube_solver.hpp"
 #include <string>
 #include <iostream>
-#include "color_detector.hpp"
+//#include "color_detector.hpp"
+#include "solve.cpp"
 
 using namespace cv;
 using namespace std;
 
 int main() {
+
     int newWidth = 300;
     int newHeight = 300;
 
@@ -30,38 +32,39 @@ int main() {
     Mat resizedImage;
 
     std::vector<cv::Mat> faces =  ColorDetector::LoadImages();
+    /*
     std::string cubeStateString;
     for (const auto& face : faces) {
         resize(face, resizedImage, newSize);
         cv::Mat colorMatrix = cv::Mat::zeros(3, 3, CV_8U);
         ColorDetector::StoreColors(resizedImage, colorMatrix);
         std::string faceColorString = ColorDetector::CreateCubeState(colorMatrix);
-        std::cout << colorMatrix << endl;
+        // std::cout << colorMatrix << endl;
         cubeStateString.append(faceColorString);
     }
 
-    std::cout << cubeStateString << endl;
+    // std::cout << cubeStateString << endl;
 
     //solving the rubics cube
+
     const char* initial_state = ColorDetector::getStateFromDictionary(cubeStateString);
-    std::cout << initial_state << endl;
 
     rb::RubikCube rb(initial_state, 3);
-
-    /*
-    std::cout << "Scramble cube:" << std::endl;
-    std::string moves = rb.Scramble();
-    cout << moves << endl;
-    rb.Dump();
-    cout << rb.faces_ << endl;
-     */
-
     rb::RubikCubeSolver *solver = new rb::RubikCube3BasicSolver(rb);
     std::string moves = solver->Solve();
 
     std::cout << "Moves solved by basic solver: " << moves << std::endl;
-    rb.Move(moves);
-    rb.Dump();
+    std::istringstream iss(moves);
+    std::string move;
+    int i = 1;
+    while (iss >> move) {
+        std::cout << "Move" <<i<< ": "<< move << std::endl;
+        rb.Move(move);
+        rb.Dump();
+        i +=1;
+    }*/
+    std::string steps = solve(faces);
+    std::cout<< steps<< std::endl;
 
     return 0;
 }
