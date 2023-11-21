@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="AR_VR_CORE"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="msvc8"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\opencv-4.x\;CMake Files\..\..\opencv-4.x\build\;CMake Files\..\..\opencv-4.x\build\install\;CMake Files\..\..\opencv-4.x\build\install\x64\;CMake Files\..\..\opencv-4.x\build\install\x64\vc17\;CMake Files\..\..\opencv-4.x\build\install\x64\vc17\lib\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/budai/CLionProjects/AR_VR_CORE/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\budai\CLionProjects\AR_VR_CORE\cmake-build-debug\Makefile VERBOSE=1 all"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\budai\CLionProjects\AR_VR_CORE\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\budai\CLionProjects\AR_VR_CORE\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\budai\CLionProjects\AR_VR_CORE\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="AR_VR_CORE">
+				<Option output="C:/Users/budai/CLionProjects/AR_VR_CORE/cmake-build-debug/AR_VR_CORE.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/budai/CLionProjects/AR_VR_CORE/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="C:/Users/budai/opencv-4.x/build/install/include"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\ATLMFC\include"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\budai\CLionProjects\AR_VR_CORE\cmake-build-debug\Makefile VERBOSE=1 AR_VR_CORE"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\budai\CLionProjects\AR_VR_CORE\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\budai\CLionProjects\AR_VR_CORE\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\budai\CLionProjects\AR_VR_CORE\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="AR_VR_CORE/fast">
+				<Option output="C:/Users/budai/CLionProjects/AR_VR_CORE/cmake-build-debug/AR_VR_CORE.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/budai/CLionProjects/AR_VR_CORE/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="C:/Users/budai/opencv-4.x/build/install/include"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\ATLMFC\include"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\budai\CLionProjects\AR_VR_CORE\cmake-build-debug\Makefile VERBOSE=1 AR_VR_CORE/fast"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\budai\CLionProjects\AR_VR_CORE\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\budai\CLionProjects\AR_VR_CORE\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\budai\CLionProjects\AR_VR_CORE\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/budai/CLionProjects/AR_VR_CORE/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\budai\CLionProjects\AR_VR_CORE\cmake-build-debug\Makefile VERBOSE=1 edit_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\budai\CLionProjects\AR_VR_CORE\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\budai\CLionProjects\AR_VR_CORE\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\budai\CLionProjects\AR_VR_CORE\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/budai/CLionProjects/AR_VR_CORE/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\budai\CLionProjects\AR_VR_CORE\cmake-build-debug\Makefile VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\budai\CLionProjects\AR_VR_CORE\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\budai\CLionProjects\AR_VR_CORE\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\budai\CLionProjects\AR_VR_CORE\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/budai/CLionProjects/AR_VR_CORE/Solver.cpp">
+			<Option target="AR_VR_CORE"/>
+		</Unit>
+		<Unit filename="C:/Users/budai/CLionProjects/AR_VR_CORE/Solver.hpp">
+			<Option target="AR_VR_CORE"/>
+		</Unit>
+		<Unit filename="C:/Users/budai/CLionProjects/AR_VR_CORE/color_detector.cpp">
+			<Option target="AR_VR_CORE"/>
+		</Unit>
+		<Unit filename="C:/Users/budai/CLionProjects/AR_VR_CORE/color_detector.hpp">
+			<Option target="AR_VR_CORE"/>
+		</Unit>
+		<Unit filename="C:/Users/budai/CLionProjects/AR_VR_CORE/main.cpp">
+			<Option target="AR_VR_CORE"/>
+		</Unit>
+		<Unit filename="C:/Users/budai/CLionProjects/AR_VR_CORE/rubik_cube.cpp">
+			<Option target="AR_VR_CORE"/>
+		</Unit>
+		<Unit filename="C:/Users/budai/CLionProjects/AR_VR_CORE/rubik_cube.hpp">
+			<Option target="AR_VR_CORE"/>
+		</Unit>
+		<Unit filename="C:/Users/budai/CLionProjects/AR_VR_CORE/rubik_cube_3basic_solver.cpp">
+			<Option target="AR_VR_CORE"/>
+		</Unit>
+		<Unit filename="C:/Users/budai/CLionProjects/AR_VR_CORE/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="C:/Users/budai/CLionProjects/AR_VR_CORE/../../opencv-4.x/build/install/OpenCVConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\opencv-4.x\build\install\"/>
+		</Unit>
+		<Unit filename="C:/Users/budai/CLionProjects/AR_VR_CORE/../../opencv-4.x/build/install/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\opencv-4.x\build\install\"/>
+		</Unit>
+		<Unit filename="C:/Users/budai/CLionProjects/AR_VR_CORE/../../opencv-4.x/build/install/x64/vc17/lib/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\opencv-4.x\build\install\x64\vc17\lib\"/>
+		</Unit>
+		<Unit filename="C:/Users/budai/CLionProjects/AR_VR_CORE/../../opencv-4.x/build/install/x64/vc17/lib/OpenCVModules-debug.cmake">
+			<Option virtualFolder="CMake Files\..\..\opencv-4.x\build\install\x64\vc17\lib\"/>
+		</Unit>
+		<Unit filename="C:/Users/budai/CLionProjects/AR_VR_CORE/../../opencv-4.x/build/install/x64/vc17/lib/OpenCVModules.cmake">
+			<Option virtualFolder="CMake Files\..\..\opencv-4.x\build\install\x64\vc17\lib\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

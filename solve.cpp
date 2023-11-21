@@ -44,3 +44,4 @@ std::string solve(const std::vector<cv::Mat> &faces) {
 
     return moves;
 }
+

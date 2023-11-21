@@ -45,12 +45,19 @@ void adjustBrightness(cv::Mat& hsvImage, double targetBrightness = 40) {
 
 const char* ColorDetector::getStateFromDictionary(const std::string& input) {
     std::map<int, char> cubeStateDictionary = {
-            {0, 'L'},
+            /*{0, 'L'},
             {1, 'U'},
             {2, 'D'},
             {3, 'R'},
             {4, 'B'},
-            {5, 'F'}
+            {5, 'F'}*/
+            // Based on the solver code
+            {0, 'B'},
+            {1, 'L'},
+            {2, 'R'},
+            {3, 'F'},
+            {4, 'U'},
+            {5, 'D'}
     };
 
     char* result = new char[input.size() + 1]; // +1 for null-terminator

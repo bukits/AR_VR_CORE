@@ -13,6 +13,9 @@ add_executable(AR_VR_CORE main.cpp
         rubik_cube_3basic_solver.cpp
         color_detector.cpp
         color_detector.hpp
+        Solver.cpp
+        Solver.hpp
+
 )
 
 set(OpenCV_LIBS opencv_core opencv_imgproc opencv_highgui opencv_imgcodecs)

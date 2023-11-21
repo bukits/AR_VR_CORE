@@ -18,7 +18,7 @@
 #include <string>
 #include <iostream>
 //#include "color_detector.hpp"
-#include "solve.cpp"
+#include "Solver.hpp"
 
 using namespace cv;
 using namespace std;
@@ -63,8 +63,17 @@ int main() {
         rb.Dump();
         i +=1;
     }*/
-    std::string steps = solve(faces);
+    Solver S = Solver();
+    std::string steps;
+    steps = S.solve(faces);
     std::cout<< steps<< std::endl;
+
+    std::string filePath = R"(C:\Users\budai\CLionProjects\AR_VR_CORE\faces\TEST\done\4_R.jpeg)"; // Replace with your file path
+    cv::Mat image = cv::imread(filePath);
+    //imshow("Loaded Image", image);
+    //cv::waitKey(0);
+    bool isstate = S.check_state(image);
+    std::cout<< "The image is in: "<< isstate<<endl;
 
     return 0;
 }
