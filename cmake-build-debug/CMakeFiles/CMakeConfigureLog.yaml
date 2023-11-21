@@ -7,7 +7,7 @@ events:
       - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineSystem.cmake:204 (message)"
       - "CMakeLists.txt:2 (project)"
     message: |
-      The system is: Windows - 10.0.22621 - AMD64
+      The system is: Windows - 10.0.22000 - AMD64
   -
     kind: "message-v1"
     backtrace:
@@ -23,11 +23,11 @@ events:
       
       The output was:
       0
-      Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32825 for x64
+      Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32824 for x64
       Copyright (C) Microsoft Corporation.  All rights reserved.
       
       CMakeCCompilerId.c
-      Microsoft (R) Incremental Linker Version 14.37.32825.0
+      Microsoft (R) Incremental Linker Version 14.37.32824.0
       Copyright (C) Microsoft Corporation.  All rights reserved.
       
       /out:CMakeCCompilerId.exe 
@@ -39,7 +39,7 @@ events:
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.obj"
       
       The C compiler identification is MSVC, found in:
-        C:/Users/budai/CLionProjects/AR_VR_CORE/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdC/CMakeCCompilerId.exe
+        C:/Users/tbukits/CLionProjects/AR_VR_CORE/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdC/CMakeCCompilerId.exe
       
   -
     kind: "message-v1"
@@ -51,7 +51,7 @@ events:
     message: |
       Detecting C compiler /showIncludes prefix:
         main.c
-        Note: including file: C:\\Users\\budai\\CLionProjects\\AR_VR_CORE\\cmake-build-debug\\CMakeFiles\\ShowIncludes\\foo.h
+        Note: including file: C:\\Users\\tbukits\\CLionProjects\\AR_VR_CORE\\cmake-build-debug\\CMakeFiles\\ShowIncludes\\foo.h
         
       Found prefix "Note: including file: "
   -
@@ -69,11 +69,11 @@ events:
       
       The output was:
       0
-      Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32825 for x64
+      Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32824 for x64
       Copyright (C) Microsoft Corporation.  All rights reserved.
       
       CMakeCXXCompilerId.cpp
-      Microsoft (R) Incremental Linker Version 14.37.32825.0
+      Microsoft (R) Incremental Linker Version 14.37.32824.0
       Copyright (C) Microsoft Corporation.  All rights reserved.
       
       /out:CMakeCXXCompilerId.exe 
@@ -85,7 +85,7 @@ events:
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.obj"
       
       The CXX compiler identification is MSVC, found in:
-        C:/Users/budai/CLionProjects/AR_VR_CORE/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdCXX/CMakeCXXCompilerId.exe
+        C:/Users/tbukits/CLionProjects/AR_VR_CORE/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdCXX/CMakeCXXCompilerId.exe
       
   -
     kind: "message-v1"
@@ -97,7 +97,7 @@ events:
     message: |
       Detecting CXX compiler /showIncludes prefix:
         main.c
-        Note: including file: C:\\Users\\budai\\CLionProjects\\AR_VR_CORE\\cmake-build-debug\\CMakeFiles\\ShowIncludes\\foo.h
+        Note: including file: C:\\Users\\tbukits\\CLionProjects\\AR_VR_CORE\\cmake-build-debug\\CMakeFiles\\ShowIncludes\\foo.h
         
       Found prefix "Note: including file: "
   -
@@ -109,8 +109,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/budai/CLionProjects/AR_VR_CORE/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-hjp64r"
-      binary: "C:/Users/budai/CLionProjects/AR_VR_CORE/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-hjp64r"
+      source: "C:/Users/tbukits/CLionProjects/AR_VR_CORE/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-jcwq28"
+      binary: "C:/Users/tbukits/CLionProjects/AR_VR_CORE/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-jcwq28"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
@@ -119,27 +119,10 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: C:/Users/budai/CLionProjects/AR_VR_CORE/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-hjp64r
+        Change Dir: C:/Users/tbukits/CLionProjects/AR_VR_CORE/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-jcwq28
         
-        Run Build Command(s):C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/bin/cmake.exe -E env VERBOSE=1 nmake -f Makefile /nologo cmTC_932dd\\fast && 	"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\nmake.exe"  -f CMakeFiles\\cmTC_932dd.dir\\build.make /nologo -L                  CMakeFiles\\cmTC_932dd.dir\\build
-        Building C object CMakeFiles/cmTC_932dd.dir/CMakeCCompilerABI.c.obj
-        	"C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_cl_compile_depends --dep-file=CMakeFiles\\cmTC_932dd.dir\\CMakeCCompilerABI.c.obj.d --working-dir=C:\\Users\\budai\\CLionProjects\\AR_VR_CORE\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-hjp64r --filter-prefix="Note: including file: " -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\cl.exe @C:\\Users\\budai\\AppData\\Local\\Temp\\nm2E52.tmp
-        CMakeCCompilerABI.c
-        Linking C executable cmTC_932dd.exe
-        	"C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_932dd.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_932dd.dir\\objects1.rsp @C:\\Users\\budai\\AppData\\Local\\Temp\\nm2FDA.tmp
-        Visual Studio Incremental Link with embedded manifests
-        Create CMakeFiles\\cmTC_932dd.dir/manifest.rc
-        Create empty: CMakeFiles\\cmTC_932dd.dir/embed.manifest
-        RC Pass 1:
-        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_932dd.dir/manifest.res CMakeFiles\\cmTC_932dd.dir/manifest.rc
-        LINK Pass 1:
-        C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_932dd.dir\\objects1.rsp /out:cmTC_932dd.exe /implib:cmTC_932dd.lib /pdb:C:\\Users\\budai\\CLionProjects\\AR_VR_CORE\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-hjp64r\\cmTC_932dd.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_932dd.dir/intermediate.manifest CMakeFiles\\cmTC_932dd.dir/manifest.res
-        MT:
-        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe /nologo /manifest CMakeFiles\\cmTC_932dd.dir/intermediate.manifest /out:CMakeFiles\\cmTC_932dd.dir/embed.manifest /notify_update
-        RC Pass 2:
-        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_932dd.dir/manifest.res CMakeFiles\\cmTC_932dd.dir/manifest.rc
-        FINAL LINK:
-        C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_932dd.dir\\objects1.rsp /out:cmTC_932dd.exe /implib:cmTC_932dd.lib /pdb:C:\\Users\\budai\\CLionProjects\\AR_VR_CORE\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-hjp64r\\cmTC_932dd.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_932dd.dir/intermediate.manifest CMakeFiles\\cmTC_932dd.dir/manifest.res
+        Run Build Command(s):C:/Program Files/JetBrains/CLion 2023.2.2/bin/ninja/win/x64/ninja.exe -v cmTC_36ea5 && [1/2] C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS  /Ob0 /Od /RTC1 -MDd -Zi /showIncludes /FoCMakeFiles\\cmTC_36ea5.dir\\CMakeCCompilerABI.c.obj /FdCMakeFiles\\cmTC_36ea5.dir\\ /FS -c "C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\share\\cmake-3.26\\Modules\\CMakeCCompilerABI.c"
+        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_36ea5.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_36ea5.dir\\CMakeCCompilerABI.c.obj  /out:cmTC_36ea5.exe /implib:cmTC_36ea5.lib /pdb:cmTC_36ea5.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
         
       exitCode: 0
   -
@@ -151,8 +134,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/budai/CLionProjects/AR_VR_CORE/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-isscvs"
-      binary: "C:/Users/budai/CLionProjects/AR_VR_CORE/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-isscvs"
+      source: "C:/Users/tbukits/CLionProjects/AR_VR_CORE/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-fpc787"
+      binary: "C:/Users/tbukits/CLionProjects/AR_VR_CORE/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-fpc787"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
@@ -161,27 +144,10 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: C:/Users/budai/CLionProjects/AR_VR_CORE/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-isscvs
+        Change Dir: C:/Users/tbukits/CLionProjects/AR_VR_CORE/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-fpc787
         
-        Run Build Command(s):C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/bin/cmake.exe -E env VERBOSE=1 nmake -f Makefile /nologo cmTC_c6b15\\fast && 	"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\nmake.exe"  -f CMakeFiles\\cmTC_c6b15.dir\\build.make /nologo -L                  CMakeFiles\\cmTC_c6b15.dir\\build
-        Building CXX object CMakeFiles/cmTC_c6b15.dir/CMakeCXXCompilerABI.cpp.obj
-        	"C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_cl_compile_depends --dep-file=CMakeFiles\\cmTC_c6b15.dir\\CMakeCXXCompilerABI.cpp.obj.d --working-dir=C:\\Users\\budai\\CLionProjects\\AR_VR_CORE\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-isscvs --filter-prefix="Note: including file: " -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\cl.exe @C:\\Users\\budai\\AppData\\Local\\Temp\\nm31CD.tmp
-        CMakeCXXCompilerABI.cpp
-        Linking CXX executable cmTC_c6b15.exe
-        	"C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_c6b15.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_c6b15.dir\\objects1.rsp @C:\\Users\\budai\\AppData\\Local\\Temp\\nm325B.tmp
-        Visual Studio Incremental Link with embedded manifests
-        Create CMakeFiles\\cmTC_c6b15.dir/manifest.rc
-        Create empty: CMakeFiles\\cmTC_c6b15.dir/embed.manifest
-        RC Pass 1:
-        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_c6b15.dir/manifest.res CMakeFiles\\cmTC_c6b15.dir/manifest.rc
-        LINK Pass 1:
-        C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_c6b15.dir\\objects1.rsp /out:cmTC_c6b15.exe /implib:cmTC_c6b15.lib /pdb:C:\\Users\\budai\\CLionProjects\\AR_VR_CORE\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-isscvs\\cmTC_c6b15.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_c6b15.dir/intermediate.manifest CMakeFiles\\cmTC_c6b15.dir/manifest.res
-        MT:
-        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe /nologo /manifest CMakeFiles\\cmTC_c6b15.dir/intermediate.manifest /out:CMakeFiles\\cmTC_c6b15.dir/embed.manifest /notify_update
-        RC Pass 2:
-        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_c6b15.dir/manifest.res CMakeFiles\\cmTC_c6b15.dir/manifest.rc
-        FINAL LINK:
-        C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_c6b15.dir\\objects1.rsp /out:cmTC_c6b15.exe /implib:cmTC_c6b15.lib /pdb:C:\\Users\\budai\\CLionProjects\\AR_VR_CORE\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-isscvs\\cmTC_c6b15.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_c6b15.dir/intermediate.manifest CMakeFiles\\cmTC_c6b15.dir/manifest.res
+        Run Build Command(s):C:/Program Files/JetBrains/CLion 2023.2.2/bin/ninja/win/x64/ninja.exe -v cmTC_e0015 && [1/2] C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP   /DWIN32 /D_WINDOWS /EHsc  /Ob0 /Od /RTC1 -MDd -Zi /showIncludes /FoCMakeFiles\\cmTC_e0015.dir\\CMakeCXXCompilerABI.cpp.obj /FdCMakeFiles\\cmTC_e0015.dir\\ /FS -c "C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\share\\cmake-3.26\\Modules\\CMakeCXXCompilerABI.cpp"
+        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_e0015.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~4\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_e0015.dir\\CMakeCXXCompilerABI.cpp.obj  /out:cmTC_e0015.exe /implib:cmTC_e0015.lib /pdb:cmTC_e0015.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
         
       exitCode: 0
 ...

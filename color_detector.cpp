@@ -10,7 +10,7 @@ std::string GetPath(){
     if (lastSlashPos != std::string::npos) {
         path = path.substr(0, lastSlashPos);
     }
-    std::string folderPath = path + "/faces/TEST/";
+    std::string folderPath = path + "/faces_test5";
     std::cout<< folderPath << std::endl;
     try {
         if (!std::filesystem::exists(folderPath)) {
