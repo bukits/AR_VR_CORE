@@ -10,11 +10,11 @@ public:
     // inout from the FE BZS
     static std::vector<cv::Mat> LoadImages();
 
-    static const char* getStateFromDictionary(const std::string& input);
+    static const char *getStateFromDictionary(const std::string &input);
 
-    static void StoreColors(cv::Mat& image, cv::Mat& colorMatrix);
+    static void StoreColors(cv::Mat &image, cv::Mat &colorMatrix);
 
     //Top, left, front, right, back, bottom is the order from row processing from left to right
     // only for one face
-    static std::string CreateCubeState(cv::Mat& colorMatrix);
+    static std::string CreateCubeState(cv::Mat &colorMatrix);
 };

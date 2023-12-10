@@ -14,9 +14,11 @@
 class Solver {
 public:
     Solver() = default;
+
     ~Solver() = default;
 
     std::string solve(const std::vector<cv::Mat> &faces);
+
     bool check_state(const cv::Mat &face);
 
 private:

@@ -3,20 +3,20 @@
 #include <map>
 #include "color_detector.hpp"
 
-std::string GetPath(){
+std::string GetPath() {
     std::filesystem::path cwd = std::filesystem::current_path();
     std::string path = cwd.generic_string();
     size_t lastSlashPos = path.find_last_of('/');
     if (lastSlashPos != std::string::npos) {
         path = path.substr(0, lastSlashPos);
     }
-    std::string folderPath = path + "/faces_test5";
-    std::cout<< folderPath << std::endl;
+    std::string folderPath = path + "/faces/faces_test5";
+    std::cout << folderPath << std::endl;
     try {
         if (!std::filesystem::exists(folderPath)) {
             throw std::runtime_error("Folder not found: " + folderPath);
         }
-    } catch (const std::exception& e) {
+    } catch (const std::exception &e) {
         std::cerr << "Error: " << e.what() << std::endl;
         throw;
     }
@@ -24,26 +24,26 @@ std::string GetPath(){
     return folderPath;
 }
 
-double measureBrightness(const cv::Mat& image) {
+double measureBrightness(const cv::Mat &image) {
     cv::Mat grayImage;
     cvtColor(image, grayImage, cv::COLOR_BGR2GRAY);
     cv::Scalar averageIntensity = mean(grayImage);
     return averageIntensity[0];
 }
 
-void adjustBrightness(cv::Mat& hsvImage, double targetBrightness = 40) {
+void adjustBrightness(cv::Mat &hsvImage, double targetBrightness = 40) {
     double currentBrightness = measureBrightness(hsvImage);
 
     if (currentBrightness < targetBrightness) {
         double brightnessFactor = targetBrightness / currentBrightness;
 
-        hsvImage.forEach<cv::Vec3b>([brightnessFactor](cv::Vec3b& pixel, const int* position) {
+        hsvImage.forEach<cv::Vec3b>([brightnessFactor](cv::Vec3b &pixel, const int *position) {
             pixel[2] = cv::saturate_cast<uchar>(pixel[2] * brightnessFactor);
         });
     }
 }
 
-const char* ColorDetector::getStateFromDictionary(const std::string& input) {
+const char *ColorDetector::getStateFromDictionary(const std::string &input) {
     std::map<int, char> cubeStateDictionary = {
             /*{0, 'L'},
             {1, 'U'},
@@ -60,10 +60,10 @@ const char* ColorDetector::getStateFromDictionary(const std::string& input) {
             {5, 'D'}
     };
 
-    char* result = new char[input.size() + 1]; // +1 for null-terminator
+    char *result = new char[input.size() + 1]; // +1 for null-terminator
     int resultIndex = 0;
 
-    for (char c : input) {
+    for (char c: input) {
         int key = c - '0';
         auto it = cubeStateDictionary.find(key);
 
@@ -88,17 +88,15 @@ std::vector<cv::Mat> ColorDetector::LoadImages() {
 
         if (fileNames.empty()) {
             std::cout << "No files found in the folder." << std::endl;
-        }
-        else {
-            for (const cv::String& fileName : fileNames) {
+        } else {
+            for (const cv::String &fileName: fileNames) {
                 cv::Mat image = cv::imread(fileName);
                 if (!image.empty()) {
                     images.push_back(image);
                 }
             }
         }
-    }
-    else {
+    } else {
         throw std::runtime_error("Folder not found: " + folderName);
     }
 
@@ -111,7 +109,7 @@ std::vector<cv::Mat> ColorDetector::LoadImages() {
     return images;
 }
 
-void ColorDetector::StoreColors(cv::Mat& image, cv::Mat& colorMatrix) {
+void ColorDetector::StoreColors(cv::Mat &image, cv::Mat &colorMatrix) {
     int numRows = colorMatrix.rows;
     int numCols = colorMatrix.cols;
     int cellWidth = image.cols / numCols;
@@ -123,7 +121,7 @@ void ColorDetector::StoreColors(cv::Mat& image, cv::Mat& colorMatrix) {
             cv::Scalar(151, 50, 50),  // Red
             cv::Scalar(50, 50, 40),  // Green
             cv::Scalar(101, 150, 50), // Blue
-            cv::Scalar(0, 50 ,100),   // Orange
+            cv::Scalar(0, 50, 100),   // Orange
             cv::Scalar(16, 50, 70), // Yellow
             cv::Scalar(0, 0, 90) // White
     };
@@ -174,7 +172,7 @@ void ColorDetector::StoreColors(cv::Mat& image, cv::Mat& colorMatrix) {
 
         int colorId = colorIds[i];
 
-        for (const auto & contour : contours) {
+        for (const auto &contour: contours) {
             double area = cv::contourArea(contour);
 
             cv::Moments mu = moments(contour);
@@ -195,7 +193,7 @@ void ColorDetector::StoreColors(cv::Mat& image, cv::Mat& colorMatrix) {
 }
 
 std::string ColorDetector::CreateCubeState(cv::Mat &colorMatrix) {
-    char* face = new char[9];
+    char *face = new char[9];
     int charIndex = 0;
 
     for (int row = 0; row < colorMatrix.rows; row++) {

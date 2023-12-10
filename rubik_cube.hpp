@@ -22,91 +22,107 @@
 
 namespace rb {
 
-enum CUBE_FACE {
-    U = 0,
-    L,
-    F,
-    R,
-    B,
-    D,
-    UNKNOWN_FACE
-};
+    enum CUBE_FACE {
+        U = 0,
+        L,
+        F,
+        R,
+        B,
+        D,
+        UNKNOWN_FACE
+    };
 
-enum CUBE_SLICE {
-    u = 6,
-    l,
-    f,
-    r,
-    b,
-    d,
-    X,
-    Y,
-    Z,
-    UNKNOWN_SLICE
-};
+    enum CUBE_SLICE {
+        u = 6,
+        l,
+        f,
+        r,
+        b,
+        d,
+        X,
+        Y,
+        Z,
+        UNKNOWN_SLICE
+    };
 
-enum ROTATE_DIR {
-    CW = 0,
-    CCW
-};
+    enum ROTATE_DIR {
+        CW = 0,
+        CCW
+    };
 
-enum ROTATE_CUBE_DIR {
-    ROTATE = 0,
-    ROLL,
-};
+    enum ROTATE_CUBE_DIR {
+        ROTATE = 0,
+        ROLL,
+    };
 
-enum FACE_EDGE {
-    LE = 0,
-    DE,
-    RE,
-    UE,
-};
-
-
-static const char* move_chars = "ULFRBDulfrbdXYZ";
+    enum FACE_EDGE {
+        LE = 0,
+        DE,
+        RE,
+        UE,
+    };
 
 
-CUBE_FACE CvtFaceCharToFace(const char& face_char);
+    static const char *move_chars = "ULFRBDulfrbdXYZ";
 
 
-class RubikCube {
-  public:
-    RubikCube(int dim = 3);
-    RubikCube(const char* colors, int dim = 3);
-    ~RubikCube();
-    RubikCube(const RubikCube& other);
-    RubikCube& operator=(const RubikCube& other);
+    CUBE_FACE CvtFaceCharToFace(const char &face_char);
 
-    bool IsSolved();
-    void Dump(const bool& is_color = false);
-    std::string GetCubeString(const bool& is_color = false);
-    char GetMappedFaceChar(const CUBE_FACE& cube_face);
-    char GetPieceChar(const CUBE_FACE& cube_face, const int& row, const int& col, const bool& is_color);
-    int GetDim() { return dim_; }
 
-    std::string Scramble(const int& Move_count = 20);
-    void Move(const std::string& Moves);
-    void Inverse(const std::string& Moves);
-    void RotateCube(const ROTATE_CUBE_DIR& dir);
+    class RubikCube {
+    public:
+        RubikCube(int dim = 3);
 
-    std::string CompressMoves(const std::string& Moves);
+        RubikCube(const char *colors, int dim = 3);
 
-    int dim_;
-    int piece_num_;
-    char* faces_;
-    char* color_mappings_;
-    char* face_mappings_;
+        ~RubikCube();
 
-  private:
-    void MapColors(const char* colors);
+        RubikCube(const RubikCube &other);
 
-    char ColorToFaceChar(const char& color);
-    char FaceCharToColor(const char& face_char);
+        RubikCube &operator=(const RubikCube &other);
 
-    void RotateFace(const CUBE_FACE& rot_face, const ROTATE_DIR& dir, const bool& face_only = false);
-    void RotateSlice(const CUBE_SLICE& rot_slice, const ROTATE_DIR& dir, const int& offset = 0);
-    void DoRotateSlice(const int& slice_info_idx, const ROTATE_DIR& dir, const int& offset = 0);
-    std::string CompressMovesImpl(const std::string& Moves);
-};
+        bool IsSolved();
+
+        void Dump(const bool &is_color = false);
+
+        std::string GetCubeString(const bool &is_color = false);
+
+        char GetMappedFaceChar(const CUBE_FACE &cube_face);
+
+        char GetPieceChar(const CUBE_FACE &cube_face, const int &row, const int &col, const bool &is_color);
+
+        int GetDim() { return dim_; }
+
+        std::string Scramble(const int &Move_count = 20);
+
+        void Move(const std::string &Moves);
+
+        void Inverse(const std::string &Moves);
+
+        void RotateCube(const ROTATE_CUBE_DIR &dir);
+
+        std::string CompressMoves(const std::string &Moves);
+
+        int dim_;
+        int piece_num_;
+        char *faces_;
+        char *color_mappings_;
+        char *face_mappings_;
+
+    private:
+        void MapColors(const char *colors);
+
+        char ColorToFaceChar(const char &color);
+
+        char FaceCharToColor(const char &face_char);
+
+        void RotateFace(const CUBE_FACE &rot_face, const ROTATE_DIR &dir, const bool &face_only = false);
+
+        void RotateSlice(const CUBE_SLICE &rot_slice, const ROTATE_DIR &dir, const int &offset = 0);
+
+        void DoRotateSlice(const int &slice_info_idx, const ROTATE_DIR &dir, const int &offset = 0);
+
+        std::string CompressMovesImpl(const std::string &Moves);
+    };
 
 }

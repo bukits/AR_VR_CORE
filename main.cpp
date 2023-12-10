@@ -17,6 +17,7 @@
 #include "rubik_cube_solver.hpp"
 #include <string>
 #include <iostream>
+#include <time.h>
 //#include "color_detector.hpp"
 #include "Solver.hpp"
 
@@ -24,14 +25,14 @@ using namespace cv;
 using namespace std;
 
 int main() {
-
+    clock_t tStart = clock();
     int newWidth = 300;
     int newHeight = 300;
 
     Size newSize(newWidth, newHeight);
     Mat resizedImage;
 
-    std::vector<cv::Mat> faces =  ColorDetector::LoadImages();
+    std::vector<cv::Mat> faces = ColorDetector::LoadImages();
     /*
     std::string cubeStateString;
     for (const auto& face : faces) {
@@ -66,14 +67,20 @@ int main() {
     Solver S = Solver();
     std::string steps;
     steps = S.solve(faces);
-    std::cout<< steps<< std::endl;
+    if (steps == "NO"){
+        cerr<< "No existing solution!"<< std::endl;
+        return 0;
 
-    std::string filePath = R"(C:\Users\budai\CLionProjects\AR_VR_CORE\faces\TEST\done\4_R.jpeg)"; // Replace with your file path
-    cv::Mat image = cv::imread(filePath);
+    }
+    std::cout<< "The solution is: "<< steps << std::endl;
+    //printf("Time taken: %.2fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
+
+    //std::string filePath = R"(C:\Users\budai\CLionProjects\AR_VR_CORE\faces\TEST\done\4_R.jpeg)"; // Replace with your file path
+    //cv::Mat image = cv::imread(filePath);
     //imshow("Loaded Image", image);
     //cv::waitKey(0);
-    bool isstate = S.check_state(image);
-    std::cout<< "The image is in: "<< isstate<<endl;
+    //bool isstate = S.check_state(image);
+    //std::cout << "The image is in: " << isstate << endl;
 
     return 0;
 }
